@@ -24,7 +24,14 @@
   <script>
   export default {
     name: 'lista-productos',
-    props: ['nombre', 'cantidad', 'precio', 'categoria', 'autor', 'img', 'imgalt', 'observacion', 'codigo']
+    props: ['nombre', 'cantidad', 'precio', 'categoria', 'autor', 'img', 'imgalt', 'observacion', 'codigo'],
+    filters: {
+        mayuscula: function(value) {
+        if (!value) return '';
+        value = value.toString();
+        return value.charAt(0).toUpperCase() + value.slice(1);
+        }
+    }
   }
   </script>
   
