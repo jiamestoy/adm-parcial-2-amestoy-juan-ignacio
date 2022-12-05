@@ -2,15 +2,15 @@
   <div :style="(modalConfirmarAgregar == true) || (modalConfirmarEliminar == true) || (modalConfirmarModificar == true) ? 'opacity:0.5' : 'opacity: 1'">
     <ul class="nav nav-tabs fixed-bottom barra-navegacion">
       <li class="nav-item">
-        <a href="#listado"><img src="img/lista.png"> Listado</a>
+        <a href="#listado"><img src="../src/assets/lista.png"> Listado</a>
       </li>
 
       <li class="nav-item">
-        <a href="#modificar"><img src="img/editar.png"> Modificar</a>
+        <a href="#modificar"><img src="../src/assets/editar.png"> Modificar</a>
       </li>
 
       <li class="nav-item">
-        <a href="#agregar"><img src="img/agregar.png"> Agregar</a>
+        <a href="#agregar"><img src="../src/assets/agregar.png"> Agregar</a>
       </li>
     </ul>
 
@@ -30,9 +30,17 @@
         </div>
 
         <div>
-          <ListaProductos v-for="(item, key) in productos" v-bind:nombre="item.nombre" v-bind:cantidad="item.cantidad"
-            v-bind:precio="item.precio" v-bind:categoria="item.categoria" v-bind:autor="item.autor"
-            v-bind:img="item.img" v-bind:imgalt="item.imgalt" v-bind:observacion="item.observacion" v-bind:codigo="key"
+          <ListaProductos v-for="(item, key) in productos" 
+            v-bind:nombre="item.nombre" 
+            v-bind:cantidad="item.cantidad"
+            v-bind:precio="item.precio" 
+            v-bind:categoria="item.categoria" 
+            v-bind:autor="item.autor"
+            v-bind:img="item.img" 
+            v-bind:imgalt="item.imgalt" 
+            v-bind:observacion="item.observacion" 
+            v-bind:codigo="key"
+            v-bind:key="key"
             v-if="(item.categoria === 'Fantasía' && cat1 === true) || (item.categoria === 'Ciencia Ficción' && cat2 === true) || (item.categoria === 'Terror' && cat3 === true) || (item.categoria === 'Policial' && cat4 === true)">
           </ListaProductos>
         </div>
@@ -42,7 +50,7 @@
       <section>
         <h2>Modificar Productos</h2>
         <div>
-          <div v-for="(item, key) of productos">
+          <div v-for="(item, key) of productos" v-bind:key="key">
             <form>
               <div class="modificar-producto">
 
@@ -435,7 +443,7 @@ export default {
     ]
   }),
 
-  methods: () => ({
+  methods: {
     seleccionaTodos: function() {
       this.cat1 = true;
       this.cat2 = true;
@@ -513,14 +521,14 @@ export default {
 
     agregarLibro: function() {
       let libro = new Producto();
-      libro.nombre = nuevonombre.value;
-      libro.autor = nuevoautor.value;
-      libro.cantidad = nuevacantidad.value;
-      libro.precio = nuevoprecio.value;
-      libro.categoria = nuevacategoria.value;
-      libro.img = nuevoimg.value;
-      libro.imgalt = nuevoimgalt.value;
-      libro.observacion = nuevaobservacion.value;
+      libro.nombre = this.nuevonombre.value;
+      libro.autor = this.nuevoautor.value;
+      libro.cantidad = this.nuevacantidad.value;
+      libro.precio = this.nuevoprecio.value;
+      libro.categoria = this.nuevacategoria.value;
+      libro.img = this.nuevoimg.value;
+      libro.imgalt = this.nuevoimgalt.value;
+      libro.observacion = this.nuevaobservacion.value;
       libro.mostrar = false;
 
       if (libro.nombre == '') {
@@ -585,22 +593,22 @@ export default {
         this.errorImgalt = false;
         this.modalConfirmarAgregar = true;
       }
-      libroParaConfrimar = libro;
+      this.libroParaConfrimar = libro;
     },
 
     guardarLibro: function() {
-      this.productos.push(libroParaConfrimar);
+      this.productos.push(this.libroParaConfrimar);
       localStorage.setItem("productos", JSON.stringify(this.productos));
       this.modalConfirmarAgregar = false;
-      libroParaConfrimar = '';
+      this.libroParaConfrimar = '';
 
-      nuevonombre.value = '';
-      nuevoautor.value = '';
-      nuevacantidad.value = '';
-      nuevoprecio.value = '';
-      nuevoimg.value = '';
-      nuevoimgalt.value = '';
-      nuevaobservacion.value = '';
+      this.nuevonombre.value = '';
+      this.nuevoautor.value = '';
+      this.nuevacantidad.value = '';
+      this.nuevoprecio.value = '';
+      this.nuevoimg.value = '';
+      this.nuevoimgalt.value = '';
+      this.nuevaobservacion.value = '';
 
     },
 
@@ -608,15 +616,15 @@ export default {
       this.modalConfirmarAgregar = false;
       this.libroParaConfrimar = '';
     }
-  }),
+  },
 
-  filters: () => ({
+  filters: {
     mayuscula: function(value) {
       if (!value) return '';
       value = value.toString();
       return value.charAt(0).toUpperCase() + value.slice(1);
     }
-  })
+  }
 
 }
 </script>
