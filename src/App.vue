@@ -230,31 +230,31 @@
       </section>
     </main>
 
-  </div>
-
-  <div v-show="modalConfirmarAgregar" class="modalConfirmarAgregar">
-    <h3>¿Estás seguro que querés agregar el libro?</h3>
-    <h4>{{libroParaConfrimar.nombre}}</h4>
-    <img :src="libroParaConfrimar.img" :alt="libroParaConfrimar.imgalt">
-    <ul>
-        <li>Autor: {{libroParaConfrimar.autor}}</li>
-        <li>Cantidad: {{libroParaConfrimar.cantidad}} unidades</li>
-        <li>Precio: $ {{libroParaConfrimar.precio}}</li>
-        <li>Género: {{libroParaConfrimar.categoria}}</li>
-        <li>Observación: {{libroParaConfrimar.observacion}}</li>
-    </ul>
-    <div class="grupo-botones">
-        <button type="button" v-on:click="guardarLibro()">Si, confirmar</button>
-        <button type="button" v-on:click="cancelarGuardar()">No, cancelar</button>
+    <div v-show="modalConfirmarAgregar" class="modalConfirmarAgregar">
+      <h3>¿Estás seguro que querés agregar el libro?</h3>
+      <h4>{{libroParaConfrimar.nombre}}</h4>
+      <img :src="libroParaConfrimar.img" :alt="libroParaConfrimar.imgalt">
+      <ul>
+          <li>Autor: {{libroParaConfrimar.autor}}</li>
+          <li>Cantidad: {{libroParaConfrimar.cantidad}} unidades</li>
+          <li>Precio: $ {{libroParaConfrimar.precio}}</li>
+          <li>Género: {{libroParaConfrimar.categoria}}</li>
+          <li>Observación: {{libroParaConfrimar.observacion}}</li>
+      </ul>
+      <div class="grupo-botones">
+          <button type="button" v-on:click="guardarLibro()">Si, confirmar</button>
+          <button type="button" v-on:click="cancelarGuardar()">No, cancelar</button>
+      </div>
     </div>
-  </div>
 
-  <div v-show="modalConfirmarEliminar" class="modalConfirmarEliminar">
-    <h3>¿Estás seguro que querés eliminar el libro {{libroParaEliminar}}?</h3>
-    <div class="grupo-botones">
-      <button type="button" v-on:click="confirmarEliminarProducto()">Si, confirmar</button>
-      <button type="button" v-on:click="cancelarEliminarProducto()">No, cancelar</button>
+    <div v-show="modalConfirmarEliminar" class="modalConfirmarEliminar">
+      <h3>¿Estás seguro que querés eliminar el libro {{libroParaEliminar}}?</h3>
+      <div class="grupo-botones">
+        <button type="button" v-on:click="confirmarEliminarProducto()">Si, confirmar</button>
+        <button type="button" v-on:click="cancelarEliminarProducto()">No, cancelar</button>
+      </div>
     </div>
+
   </div>
 </template>
 

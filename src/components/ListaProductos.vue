@@ -1,4 +1,4 @@
-<template>
+  <template>
     <div class="card mb-3 card-productos">
       <div class="row g-0">
           <div class="col-md-4">
