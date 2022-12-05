@@ -521,14 +521,14 @@ export default {
 
     agregarLibro: function() {
       let libro = new Producto();
-      libro.nombre = this.nuevonombre.value;
-      libro.autor = this.nuevoautor.value;
-      libro.cantidad = this.nuevacantidad.value;
-      libro.precio = this.nuevoprecio.value;
-      libro.categoria = this.nuevacategoria.value;
-      libro.img = this.nuevoimg.value;
-      libro.imgalt = this.nuevoimgalt.value;
-      libro.observacion = this.nuevaobservacion.value;
+      libro.nombre = nuevonombre.value;
+      libro.autor = nuevoautor.value;
+      libro.cantidad = nuevacantidad.value;
+      libro.precio = nuevoprecio.value;
+      libro.categoria = nuevacategoria.value;
+      libro.img = nuevoimg.value;
+      libro.imgalt = nuevoimgalt.value;
+      libro.observacion = nuevaobservacion.value;
       libro.mostrar = false;
 
       if (libro.nombre == '') {
