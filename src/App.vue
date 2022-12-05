@@ -262,11 +262,31 @@
 import CabeceraApp from './components/CabeceraApp.vue';
 import ListaProductos from './components/ListaProductos.vue';
 
+class Producto {
+  nombre = '';
+  autor = '';
+  cantidad = '';
+  precio = '';
+  categoria = '';
+  img = '';
+  imgalt = '';
+  observacion = '';
+  mostrar = '';
+}
+
+
 export default {
   name: 'App',
   components: {
     CabeceraApp,
     ListaProductos
+  },
+
+  created: function() {
+    if (localStorage.productos) {
+      const productosGuardados = JSON.parse(localStorage.getItem("productos"));
+      this.productos = productosGuardados
+    }
   },
 
   data: () => ({
@@ -461,12 +481,12 @@ export default {
 
     modificarProducto: function(libro) {
       this.modalConfirmarModificar = true;
-      libroParaModificar = libro;
+      this.libroParaModificar = libro;
     },
 
     confirmarModificarProducto: function() {
       localStorage.setItem("productos", JSON.stringify(this.productos));
-      libroParaModificar = '';
+      this.libroParaModificar = '';
       this.modalConfirmarModificar = false;      
     },
 
@@ -480,9 +500,9 @@ export default {
     },
 
     confirmarEliminarProducto: function() {
-      this.productos.splice(this.productos.indexOf(libroParaEliminar), 1);
+      this.productos.splice(this.productos.indexOf(this.libroParaEliminar), 1);
       localStorage.setItem("productos", JSON.stringify(this.productos));
-      libroParaEliminar = '';
+      this.libroParaEliminar = '';
       this.modalConfirmarEliminar = false;      
     },
 
@@ -588,9 +608,15 @@ export default {
       this.modalConfirmarAgregar = false;
       this.libroParaConfrimar = '';
     }
+  }),
+
+  filters: () => ({
+    mayuscula: function(value) {
+      if (!value) return '';
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
   })
-
-
 
 }
 </script>
