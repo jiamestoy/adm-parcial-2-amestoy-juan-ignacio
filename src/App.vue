@@ -130,8 +130,17 @@ section {
   margin-bottom: 100px;
 }
 
+.grupo-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .card-productos {
   margin: 30px;
+  background-color: #dedaff;
+  padding-top: 20px;
+  width: 300px;
 }
 
 .vinculo-modificar {
@@ -156,7 +165,7 @@ section {
 
 .con-stock {
   background-color: rgb(105, 156, 47);
-  color: whitesmoke;
+  color: #0e0b29;
   width: 150px;
   text-align: center;
   border-radius: 5px;

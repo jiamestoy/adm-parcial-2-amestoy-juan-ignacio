@@ -10,7 +10,7 @@
       <button type="button" name="filtros" id="policial" class="btn" v-on:click="seleccionaCat4" :class="cat4 == true ? 'boton-filtro-sleccionado' : 'boton-filtro'">Policial</button>
     </div>
 
-    <div>
+    <div class="grupo-cards">
       <ListaProductos v-for="(item, key) in productos" 
         v-bind:nombre="item.nombre" 
         v-bind:cantidad="item.cantidad"
