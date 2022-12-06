@@ -14,7 +14,7 @@
                   <p>$ {{precio}}</p>
                   <p v-if="observacion != ''">Observación: {{observacion | mayuscula}}</p>
                   <p><small class="text-muted">{{categoria}}</small></p>
-                  <a v-bind:href="'#' + codigo" class="vinculo-modificar">Modificar</a>
+                  <router-link v-bind:to="'/modificar#' + codigo" class="vinculo-modificar">Modificar</router-link>
               </div>
           </div>
       </div>

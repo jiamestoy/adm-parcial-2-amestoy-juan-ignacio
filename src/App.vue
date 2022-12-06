@@ -126,6 +126,10 @@ h1 {
   display: flex;
 }
 
+section {
+  margin-bottom: 100px;
+}
+
 .card-productos {
   max-width: 760px;
   background-color: #dedaff;
@@ -176,7 +180,6 @@ h1 {
 
 .agregar-producto {
   margin-top: 50px;
-  margin-bottom: 100px;
   padding: 15px;
   border: solid #dedaff;
   border-radius: 15px;
