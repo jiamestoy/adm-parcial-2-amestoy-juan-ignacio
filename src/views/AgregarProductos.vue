@@ -90,7 +90,16 @@
             aria-describedby="inputGroup-sizing-lg" id="nuevaobservacion" name="nuevaobservacion">
         </div>
 
-        <button type="button" v-on:click="agregarLibro()" data-toggle="modal" data-target="#exampleModal" class="boton-unico">Agregar Libro</button>
+        <v-btn
+          color="primary"
+          depressed
+          elevation="4"
+          large
+          plain
+          v-on:click="agregarLibro()"
+          class="boton-unico"
+        >Agregar Libro</v-btn>
+        
       </form>      
     </section>
 

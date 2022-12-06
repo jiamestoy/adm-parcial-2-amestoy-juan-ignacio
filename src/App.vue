@@ -249,15 +249,21 @@ button {
   justify-content: space-around;
 }
 
+.botones-modificar {
+  background-color: #dedaff;
+  color:#0e0b29;
+}
+
 .boton-unico {
   width: 100%;
+  background-color: #dedaff;
 }
 
 input, select {
   margin-top: 10px;
 }
 
-.modificar-producto span, .div-campo {
+.campo-modificar, .div-campo {
   margin-top: 10px;
   background-color: #0e0b29;
   color:#dedaff;

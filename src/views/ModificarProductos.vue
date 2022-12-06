@@ -7,26 +7,40 @@
           <div class="modificar-producto">
             <div v-bind:id="key" class="enlace-ancla"></div>      
             <h3>{{item.nombre | mayuscula}}</h3>
-            <button type="button" v-on:click="mostrarFormulario(item)" v-show="!item.mostrar" class="boton-unico">Mostrar Formulario</button>
+
+
+            <v-btn
+              color="primary"
+              depressed
+              elevation="4"
+              large
+              plain
+              v-on:click="mostrarFormulario(item)"
+              class="boton-unico"
+              v-show="!item.mostrar"
+            >Mostrar Formulario</v-btn>
+
+
+        
 
             <div v-show="item.mostrar">
               <label for="nombre">Modificar Nombre del Libro</label>
               <div class="input-group input-group-lg">
-                <span class="input-group-text" id="inputGroup-sizing-lg">Nombre</span>
+                <span class="input-group-text campo-modificar" id="inputGroup-sizing-lg">Nombre</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="nombre" name="nombre" v-model="item.nombre">
             </div>
 
               <label for="autor">Modificar Autor del Libro</label>
               <div class="input-group input-group-lg">
-                <span class="input-group-text" id="inputGroup-sizing-lg">Autor</span>
+                <span class="input-group-text campo-modificar" id="inputGroup-sizing-lg">Autor</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="autor" name="autor" v-model="item.autor">
               </div>
 
               <label for="cantidad">Modificar Cantidad de Unidades del Libro</label>
               <div class="input-group input-group-lg">
-                <span class="input-group-text" id="inputGroup-sizing-lg">Cantidad</span>
+                <span class="input-group-text campo-modificar" id="inputGroup-sizing-lg">Cantidad</span>
                 <input type="number" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="cantidad" name="cantidad" v-model="item.cantidad"
                   min="0">
@@ -34,14 +48,14 @@
 
               <label for="precio">Modificar Precio del Libro</label>
               <div class="input-group input-group-lg">
-                <span class="input-group-text" id="inputGroup-sizing-lg">Precio</span>
+                <span class="input-group-text campo-modificar" id="inputGroup-sizing-lg">Precio</span>
                 <input type="number" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="precio" name="precio" v-model="item.precio" min="0">
               </div>
 
               <label for="categoria">Modificar Género del Libro</label>
               <div class="input-group input-group-lg">
-                <span class="input-group-text" id="inputGroup-sizing-lg">Género</span>
+                <span class="input-group-text campo-modificar" id="inputGroup-sizing-lg">Género</span>
                 <select class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="categoria" name="categoria" v-model="item.categoria">
                   <option value="Fantasía">Fantasía</option>
@@ -53,29 +67,57 @@
 
               <label for="img">Modificar URL de la Portada del Libro</label>
               <div class="input-group input-group-lg">
-                <span class="input-group-text" id="inputGroup-sizing-lg">URL de la Portada</span>
+                <span class="input-group-text campo-modificar" id="inputGroup-sizing-lg">URL de la Portada</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="img" name="img" v-model="item.img">
               </div>
 
               <label for="imgalt">Modificar Descripción de la Portada del Libro</label>
               <div class="input-group input-group-lg">
-                <span class="input-group-text" id="inputGroup-sizing-lg">Descripción de la Portada</span>
+                <span class="input-group-text campo-modificar" id="inputGroup-sizing-lg">Descripción de la Portada</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="imgalt" name="imgalt" v-model="item.imgalt">
               </div>
 
               <label for="observacion">Agregar o Modificar Observacion del Libro</label>
               <div class="input-group input-group-lg">
-                <span class="input-group-text" id="inputGroup-sizing-lg">Observación</span>
+                <span class="input-group-text campo-modificar" id="inputGroup-sizing-lg">Observación</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="observacion" name="observacion"
                   v-model="item.observacion">
               </div>
               <div class="grupo-botones">
-                  <button type="button" v-on:click="modificarProducto(item)">Guardar Cambios</button>
-                  <button type="button" v-on:click="eliminarProducto(item)">Eliminar Libro</button>
-                  <button type="button" v-on:click="ocultarFormulario(item)">Ocultar Formulario</button>
+
+                <v-btn
+                  color="primary"
+                  depressed
+                  elevation="4"
+                  large
+                  plain
+                  class="botones-modificar"
+                  v-on:click="modificarProducto(item)"
+                >Guardar Cambios</v-btn>
+
+                <v-btn
+                  color="primary"
+                  depressed
+                  elevation="4"
+                  large
+                  plain
+                  class="botones-modificar"
+                  v-on:click="eliminarProducto(item)"
+                >Eliminar Libro</v-btn>
+
+                <v-btn
+                  color="primary"
+                  depressed
+                  elevation="4"
+                  large
+                  plain
+                  class="botones-modificar"
+                  v-on:click="ocultarFormulario(item)"
+                >Ocultar Formulario</v-btn>
+
               </div>
             </div>
           </div>
