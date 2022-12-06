@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/listado',
+    path: '/',
     name: 'Listado de Productos',
     component: () => import('../views/ListaProductos.vue')
   },

@@ -1,25 +1,67 @@
   <template>
-    <div class="card mb-3 card-productos">
-      <div class="row g-0">
-          <div class="col-md-4">
-              <img :src="img" class="img-fluid rounded-start" :alt="imgalt">
+
+
+    <v-card
+        class="mx-auto card-productos"
+        max-width="344"
+      >
+
+      <v-img
+        contain
+        lazy-src="https://picsum.photos/id/11/10/6"
+        max-height="300"
+        max-width="500"
+        :src="img"
+        :alt="imgalt"
+      ></v-img>
+
+
+        <v-card-title>
+          {{nombre | mayuscula}}
+        </v-card-title>
+
+        <p v-if="cantidad > 1" class="con-stock"> {{cantidad}} UNIDADES</p>
+        <p v-else-if="cantidad == 1" class="con-stock"> ÚLTIMA UNIDAD</p>
+        <p v-else class="sin-stock">SIN STOCK</p>
+
+
+        <v-card-actions>
+          <v-btn
+            color="orange lighten-2"
+            text
+          >
+            Ver Más
+          </v-btn>
+
+          <v-spacer></v-spacer>
+
+          <v-btn
+            icon
+            @click="show = !show"
+          >
+            <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+          </v-btn>
+        </v-card-actions>
+
+        <v-expand-transition>
+          <div v-show="show">
+            <v-divider></v-divider>
+
+            <v-card-text>
+              $ {{precio}}
+            </v-card-text>
+            <v-card-text v-if="observacion != ''">
+              Observación: {{observacion | mayuscula}}
+            </v-card-text>
+            <v-card-text>
+              {{categoria}}
+            </v-card-text>
           </div>
-          <div class="col-md-8">
-              <div class="card-body">
-                  <h5 class="card-title">{{nombre | mayuscula}}</h5>
-                  <p>{{autor | mayuscula}}</p>
-                  <p v-if="cantidad > 1" class="con-stock"> {{cantidad}} UNIDADES</p>
-                  <p v-else-if="cantidad == 1" class="con-stock"> ÚLTIMA UNIDAD</p>
-                  <p v-else class="sin-stock">SIN STOCK</p>
-                  <p>$ {{precio}}</p>
-                  <p v-if="observacion != ''">Observación: {{observacion | mayuscula}}</p>
-                  <p><small class="text-muted">{{categoria}}</small></p>
-                  <router-link v-bind:to="'/modificar#' + codigo" class="vinculo-modificar">Modificar</router-link>
-              </div>
-          </div>
-      </div>
-    </div>
+        </v-expand-transition>
+      </v-card>
   </template>
+
+  
   
   <script>
   export default {
@@ -32,6 +74,9 @@
         return value.charAt(0).toUpperCase() + value.slice(1);
         }
     },
+    data: () => ({
+      show: false,
+    }),
   }
   </script>
   

@@ -1,24 +1,24 @@
 <template>
   <div>
-  <ul class="nav nav-tabs fixed-bottom barra-navegacion">
-    <li class="nav-item">
-      <router-link to="/listado"><img src="../src/assets/lista.png"> Listado</router-link>
-    </li>
+    <ul class="nav nav-tabs fixed-bottom barra-navegacion">
+      <li class="nav-item">
+        <router-link to="/"><img src="../src/assets/lista.png"> Listado</router-link>
+      </li>
 
-    <li class="nav-item">
-      <router-link to="/modificar"><img src="../src/assets/editar.png"> Modificar</router-link>
-    </li>
+      <li class="nav-item">
+        <router-link to="/modificar"><img src="../src/assets/editar.png"> Modificar</router-link>
+      </li>
 
-    <li class="nav-item">
-      <router-link to="/agregar"><img src="../src/assets/agregar.png"> Agregar</router-link>
-    </li>
-  </ul>
+      <li class="nav-item">
+        <router-link to="/agregar"><img src="../src/assets/agregar.png"> Agregar</router-link>
+      </li>
+    </ul>
 
-  <CabeceraApp></CabeceraApp>
+    <CabeceraApp></CabeceraApp>
 
-  <router-view/>
+    <router-view/>
 
-</div>
+  </div>
 </template>
 
 
@@ -131,8 +131,7 @@ section {
 }
 
 .card-productos {
-  max-width: 760px;
-  background-color: #dedaff;
+  margin: 30px;
 }
 
 .vinculo-modificar {
@@ -148,19 +147,21 @@ section {
 .sin-stock {
   background-color: rgb(156, 47, 47);
   color:#dedaff;
-  width: 80px;
+  width: 150px;
   text-align: center;
   border-radius: 5px;
   font-weight: bold;
+  margin: auto;
 }
 
 .con-stock {
   background-color: rgb(105, 156, 47);
-  color: #0e0b29;
-  width: 100px;
+  color: whitesmoke;
+  width: 150px;
   text-align: center;
   border-radius: 5px;
   font-weight: bold;
+  margin: auto;
 }
 
 .modificar-producto {

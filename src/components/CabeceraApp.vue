@@ -1,7 +1,7 @@
   <template>
       <div class="banner fixed-top">
         <h1>La Cueva de Libros</h1>
-        <a href="#"><img src="../assets/logo.png" alt="Logo de la Cueva de Libros"></a>
+        <router-link to="/"><img src="../assets/logo.png" alt="Logo de la Cueva de Libros"></router-link>
       </div>
   </template>
   
