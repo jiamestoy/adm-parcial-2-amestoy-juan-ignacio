@@ -243,9 +243,9 @@ button {
   border-radius: 5px;
 }
 
-.modalConfirmarAgregar button, .modalConfirmarEliminar button, .modalConfirmarModificar button {
+.btn-modal-agregar {
   background-color: #0e0b29;
-  color:#dedaff;
+  color:#dedaff!important;
 }
 
 .modalConfirmarAgregar h3, .modalConfirmarEliminar h3, .modalConfirmarModificar h3 {

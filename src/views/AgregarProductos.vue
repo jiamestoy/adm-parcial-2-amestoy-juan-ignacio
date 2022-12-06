@@ -115,8 +115,25 @@
           <li>Observación: {{libroParaConfrimar.observacion}}</li>
       </ul>
       <div class="grupo-botones">
-          <button type="button" v-on:click="guardarLibro()">Si, confirmar</button>
-          <button type="button" v-on:click="cancelarGuardar()">No, cancelar</button>
+
+        <v-btn
+          depressed
+          elevation="4"
+          large
+          plain
+          v-on:click="guardarLibro()"
+          class="btn-modal-agregar"
+        >Si, confirmar</v-btn>
+
+        <v-btn
+          depressed
+          elevation="4"
+          large
+          plain
+          v-on:click="cancelarGuardar()"
+          class="btn-modal-agregar"
+        >No, cancelar</v-btn>
+
       </div>
       
     </div>
