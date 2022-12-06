@@ -75,27 +75,27 @@
                   v-model="item.observacion">
               </div>
               <div class="grupo-botones">
-                  <button type="button" v-on:click="modificarProducto()">Guardar Cambios</button>
-                  <button type="button" v-on:click="eliminarProducto()">Eliminar Libro</button>
+                  <button type="button" v-on:click="modificarProducto(item)">Guardar Cambios</button>
+                  <button type="button" v-on:click="eliminarProducto(item)">Eliminar Libro</button>
                   <button type="button" v-on:click="ocultarFormulario(item)">Ocultar Formulario</button>
               </div>
-
-              <div v-show="modalConfirmarModificar" class="modalConfirmarModificar">
-                <h3>¿Estás seguro que querés modificar el libro {{item.nombre}}?</h3>
-                <div class="grupo-botones">
-                    <button type="button" v-on:click="confirmarModificarProducto()">Si, confirmar</button>
-                    <button type="button" v-on:click="cancelarModificarProducto()">No, cancelar</button>
-                </div>
-              </div>
-
             </div>
           </div>
         </form>
       </div>
     </div>
 
+
+    <div v-show="modalConfirmarModificar" class="modalConfirmarModificar">
+      <h3>¿Estás seguro que querés modificar el libro {{libroParaModificar.nombre}}?</h3>
+      <div class="grupo-botones">
+          <button type="button" v-on:click="confirmarModificarProducto()">Si, confirmar</button>
+          <button type="button" v-on:click="cancelarModificarProducto()">No, cancelar</button>
+      </div>
+  </div>
+
     <div v-show="modalConfirmarEliminar" class="modalConfirmarEliminar">
-      <h3>¿Estás seguro que querés eliminar el libro {{libroParaEliminar}}?</h3>
+      <h3>¿Estás seguro que querés eliminar el libro {{libroParaEliminar.nombre}}?</h3>
       <div class="grupo-botones">
         <button type="button" v-on:click="confirmarEliminarProducto()">Si, confirmar</button>
         <button type="button" v-on:click="cancelarEliminarProducto()">No, cancelar</button>
@@ -281,15 +281,18 @@ export default {
       this.modalConfirmarModificar = false;      
     },
 
-    eliminarProducto: function() {
+    eliminarProducto: function(libro) {
       this.modalConfirmarEliminar = true;
+      this.libroParaEliminar = libro;
     },
 
     confirmarEliminarProducto: function() {
+
       this.productos.splice(this.productos.indexOf(this.libroParaEliminar), 1);
       localStorage.setItem("productos", JSON.stringify(this.productos));
       this.libroParaEliminar = '';
-      this.modalConfirmarEliminar = false;      
+      this.modalConfirmarEliminar = false;
+
     },
 
     cancelarEliminarProducto: function() {
