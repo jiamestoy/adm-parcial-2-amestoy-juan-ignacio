@@ -93,6 +93,15 @@
         </form>
       </div>
     </div>
+
+    <div v-show="modalConfirmarEliminar" class="modalConfirmarEliminar">
+      <h3>¿Estás seguro que querés eliminar el libro {{libroParaEliminar}}?</h3>
+      <div class="grupo-botones">
+        <button type="button" v-on:click="confirmarEliminarProducto()">Si, confirmar</button>
+        <button type="button" v-on:click="cancelarEliminarProducto()">No, cancelar</button>
+      </div>
+    </div>
+    
   </section>
 </template>
 
