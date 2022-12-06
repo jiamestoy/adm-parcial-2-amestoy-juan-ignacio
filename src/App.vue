@@ -1,5 +1,5 @@
 <template>
-  <div :style="(modalConfirmarAgregar == true) || (modalConfirmarEliminar == true) || (modalConfirmarModificar == true) ? 'opacity:0.5' : 'opacity: 1'">
+  <div>
   <ul class="nav nav-tabs fixed-bottom barra-navegacion">
     <li class="nav-item">
       <router-link to="/listado"><img src="../src/assets/lista.png"> Listado</router-link>

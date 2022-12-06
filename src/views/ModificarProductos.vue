@@ -1,15 +1,13 @@
 <template>
   <section>
     <h2>Modificar Productos</h2>
-    <div>
+    <div :style="(modalConfirmarEliminar == true) || (modalConfirmarModificar == true) ? 'opacity:0.5' : 'opacity: 1'">
       <div v-for="(item, key) of productos" v-bind:key="key">
         <form>
           <div class="modificar-producto">
-
-              <div v-bind:id="key" class="enlace-ancla"></div>      
-              <h3>{{item.nombre | mayuscula}}</h3>
-              <button type="button" v-on:click="mostrarFormulario(item)" v-show="!item.mostrar" class="boton-unico">Mostrar Formulario</button>
-            
+            <div v-bind:id="key" class="enlace-ancla"></div>      
+            <h3>{{item.nombre | mayuscula}}</h3>
+            <button type="button" v-on:click="mostrarFormulario(item)" v-show="!item.mostrar" class="boton-unico">Mostrar Formulario</button>
 
             <div v-show="item.mostrar">
               <label for="nombre">Modificar Nombre del Libro</label>
@@ -17,7 +15,7 @@
                 <span class="input-group-text" id="inputGroup-sizing-lg">Nombre</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg" id="nombre" name="nombre" v-model="item.nombre">
-              </div>
+            </div>
 
               <label for="autor">Modificar Autor del Libro</label>
               <div class="input-group input-group-lg">
@@ -263,6 +261,7 @@ export default {
 
     ocultarFormulario: function(item) {
       item.mostrar = false;
+      localStorage.setItem("productos", JSON.stringify(this.productos));
     },
 
     modificarProducto: function(libro) {

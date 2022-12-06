@@ -1,5 +1,7 @@
 <template>
     <section class="agregar-producto">
+      <div :style="(modalConfirmarAgregar == true) ? 'opacity:0.5' : 'opacity: 1'">
+
         <h2>Agregar Productos</h2>
         <form>
           <label for="nuevonombre">Nombre</label>
@@ -91,8 +93,10 @@
 
           <button type="button" v-on:click="agregarLibro()" data-toggle="modal" data-target="#exampleModal" class="boton-unico">Agregar Libro</button>
         </form>
-
-        <div v-show="modalConfirmarAgregar" class="modalConfirmarAgregar">
+        
+      </div>  
+      
+      <div v-show="modalConfirmarAgregar" class="modalConfirmarAgregar">
             <h3>¿Estás seguro que querés agregar el libro?</h3>
             <h4>{{libroParaConfrimar.nombre}}</h4>
             <img :src="libroParaConfrimar.img" :alt="libroParaConfrimar.imgalt">
@@ -108,7 +112,7 @@
                 <button type="button" v-on:click="cancelarGuardar()">No, cancelar</button>
             </div>
         </div>
-        
+      
     </section>
 </template>
 
