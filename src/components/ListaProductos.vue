@@ -15,7 +15,6 @@
         :alt="imgalt"
       ></v-img>
 
-
         <v-card-title>
           {{nombre | mayuscula}}
         </v-card-title>
@@ -28,6 +27,7 @@
         <v-card-actions>
           <v-btn
             color="orange lighten-2"
+            @click="show = !show"
             text
           >
             Ver Más

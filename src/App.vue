@@ -1,18 +1,41 @@
 <template>
   <div>
-    <ul class="nav nav-tabs fixed-bottom barra-navegacion">
-      <li class="nav-item">
-        <router-link to="/"><img src="../src/assets/lista.png"> Listado</router-link>
-      </li>
 
-      <li class="nav-item">
-        <router-link to="/modificar"><img src="../src/assets/editar.png"> Modificar</router-link>
-      </li>
+    <router-link to="/"  class="boton-lista">
+      <v-btn
+        class="mx-2"
+        fab
+        color="blue"
+      >
+        <v-icon dark>
+          mdi-format-list-bulleted-square
+        </v-icon>
+      </v-btn>
+    </router-link>
 
-      <li class="nav-item">
-        <router-link to="/agregar"><img src="../src/assets/agregar.png"> Agregar</router-link>
-      </li>
-    </ul>
+    <router-link to="/modificar" class="boton-modificar">
+      <v-btn
+        class="mx-2"
+        fab
+        color="blue"
+      >
+        <v-icon dark>
+          mdi-pencil
+        </v-icon>
+      </v-btn>
+    </router-link>
+
+    <router-link to="/agregar" class="boton-agregar">
+      <v-btn
+        class="mx-2"
+        fab
+        color="blue"
+      >
+        <v-icon dark>
+          mdi-plus
+        </v-icon>
+      </v-btn>
+    </router-link>
 
     <CabeceraApp></CabeceraApp>
 
@@ -76,29 +99,21 @@ h2 {
   }
 }
 
-.barra-navegacion {
-  background-color: #dedaff;
-  border: solid #0e0b29;
-  border-width: 2px 2px;  
+.boton-lista, .boton-modificar, .boton-agregar {
+  position: fixed;
+  right: 60px;
 }
 
-.barra-navegacion li {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 33%;
+.boton-lista {
+  bottom: 180px;
 }
 
-.barra-navegacion li img {
-  display: block;
-  margin: auto;
+.boton-modificar {
+  bottom: 100px;
 }
 
-.barra-navegacion li a {
-  display: block;
-  color:#0e0b29;
-  text-decoration: none;
-  text-align: center;
+.boton-agregar {
+  bottom: 20px;
 }
 
 h1 {
@@ -201,7 +216,6 @@ label {
 }
 
 button {
-  background-color: #dedaff;
   border: none;
   color:#0e0b29;
   border-radius: 5px;
@@ -212,7 +226,6 @@ button {
   font-size: 16px;
   width: 200px;
   margin-top: 20px;
-  border: solid #0e0b29;
   border-width: 1px 1px;
 }
 

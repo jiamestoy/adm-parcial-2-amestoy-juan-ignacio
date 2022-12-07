@@ -53,7 +53,7 @@ export default {
     cat4: true,
     productos: [
       {
-        nombre: 'El Señor de los Anillos: La Comunidad del Anillo',
+        nombre: 'El Señor de los Anillos',
         autor: 'JRR Tolkien',
         cantidad: 0,
         precio: 5000,
@@ -163,7 +163,7 @@ export default {
         mostrar: false,
       },
       {
-        nombre: 'Cuentos de los Mitos de Cthulhu 1: Los Orígenes',
+        nombre: 'Los Mitos de Cthulhu',
         autor: 'HP Lovecraft',
         cantidad: 0,
         precio: 5500,
